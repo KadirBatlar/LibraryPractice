@@ -18,15 +18,14 @@ namespace FluentValidationApp.FluentValidators
                                     .WithMessage(NotEmptyMessage)
                                     .Must(x =>
                                     {
-                                        return DateTime.Now.AddYears(-18) <= x;
+                                        return DateTime.Now.AddYears(-18) >= x;
                                     })
                                     .WithMessage("18 yaşından büyük olmalısınız.");
 
             //One to Many Validation
             RuleForEach(x=>x.Addresses).SetValidator(new AddressValidator());
 
-
-
+            RuleFor(x => x.Gender).IsInEnum().WithMessage("{PropertyName} alanı Erkek = 1, Kadın = 2 olmalıdır");
         }
     }
 }

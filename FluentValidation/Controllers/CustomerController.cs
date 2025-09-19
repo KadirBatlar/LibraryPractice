@@ -62,39 +62,6 @@ namespace FluentValidationApp.Controllers
             return View(customer);
         }
 
-        /*[HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Customer customer)
-        {
-            // 1) Manuel çalıştır ve logla
-            var vresult = await _validator.ValidateAsync(customer);
-            if (!vresult.IsValid)
-            {
-                // Burada Must kuralının sonuçlarını görebilirsin
-                foreach (var err in vresult.Errors)
-                {
-                    ModelState.AddModelError(err.PropertyName, err.ErrorMessage);
-                }
-            }
-
-            // 2) ModelState binding detaylarını kontrol et (debug için)
-            var attempted = ModelState.TryGetValue(nameof(Customer.BirthDate), out var entry)
-                ? entry.AttemptedValue
-                : null;
-            var raw = ModelState[nameof(Customer.BirthDate)]?.RawValue;
-            var errors = ModelState[nameof(Customer.BirthDate)]?.Errors;
-
-            // debug: breakpoint koy veya bu değerleri logla
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(customer);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(customer);
-        }*/
-
         // GET: Customer/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
