@@ -1,6 +1,4 @@
-using FluentValidation;
 using FluentValidation.AspNetCore;
-using FluentValidationApp.FluentValidators;
 using FluentValidationApp.Models;
 using Microsoft.EntityFrameworkCore;
 

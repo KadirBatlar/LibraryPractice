@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
-using FluentValidation.Models;
+using FluentValidationApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace FluentValidation.Controllers
+namespace FluentValidationApp.Controllers
 {
     public class HomeController : Controller
     {
