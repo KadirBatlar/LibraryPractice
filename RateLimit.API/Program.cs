@@ -6,9 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 // Enable support for IOptions<T> to bind configuration sections to strongly typed classes
 builder.Services.AddOptions();
 
+
 // Add in-memory caching service (used to store rate limiting counters and policies in memory)
 builder.Services.AddMemoryCache();
 
+#region Ip Rate Limit
 // Bind "IpRateLimiting" section from appsettings.json to IpRateLimitOptions class
 builder.Services.Configure<IpRateLimitOptions>(builder.Configuration.GetSection("IpRateLimiting"));
 
@@ -17,6 +19,13 @@ builder.Services.Configure<IpRateLimitPolicies>(builder.Configuration.GetSection
 
 // Store IP policies (rules for specific IPs) in memory cache
 builder.Services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+#endregion
+
+#region Client Rate Limit
+builder.Services.Configure<ClientRateLimitOptions>(builder.Configuration.GetSection("ClientRateLimiting"));
+builder.Services.Configure<ClientRateLimitPolicies>(builder.Configuration.GetSection("ClientRateLimitPolicies"));
+builder.Services.AddSingleton<IClientPolicyStore, MemoryCacheClientPolicyStore>();
+#endregion
 
 // Store rate limit counters (number of requests per IP) in memory cache
 builder.Services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
@@ -35,11 +44,14 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// IP Rate Limit policy seed action
+// Rate Limit policy seed action
 using (var scope = app.Services.CreateScope())
 {
     var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
-    ipPolicyStore.SeedAsync().Wait();
+    ipPolicyStore.SeedAsync().GetAwaiter().GetResult();
+
+    var clientPolicyStore = scope.ServiceProvider.GetRequiredService<IClientPolicyStore>();
+    clientPolicyStore.SeedAsync().GetAwaiter().GetResult();
 }
 
 // Configure the HTTP request pipeline.
