@@ -35,6 +35,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// IP Rate Limit policy seed action
+using (var scope = app.Services.CreateScope())
+{
+    var ipPolicyStore = scope.ServiceProvider.GetRequiredService<IIpPolicyStore>();
+    ipPolicyStore.SeedAsync().Wait();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
