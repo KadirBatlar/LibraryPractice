@@ -4,7 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SmidgeApp.Web</title>
-    <link rel="stylesheet" href="bundle-css" />
+    
+    <environment names="Development">
+        <link rel="stylesheet" href="bundle-css"  debug="true"/>       
+    </environment>
+    <environment names="Production">
+        <link rel="stylesheet" href="bundle-css" />
+    </environment>
     <link rel="stylesheet" href="~/SmidgeApp.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -42,7 +48,14 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="bundle-js"></script>
+    
+    <environment names="Development">
+        <script src="bundle-js" debug="true"></script>
+    </environment>
+    <environment names="Production">
+        <script src="bundle-js"></script>
+    </environment>
+    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
