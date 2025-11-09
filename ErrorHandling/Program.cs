@@ -10,13 +10,12 @@ if (app.Environment.IsDevelopment())
 {
     // Shows the detailed developer exception page in Development mode.
     // This displays full stack trace and debug information when an exception occurs.
-    app.UseDeveloperExceptionPage();    
+    app.UseDeveloperExceptionPage();
 
     // Handles non-exception status codes (e.g., 404, 403).
     // Responds with plain text and inserts the status code into the message.
     // "{0}" will be replaced with the actual status code.
-    app.UseStatusCodePages("text/plain", "There is an error. Status Code : {0}");
-
+    //app.UseStatusCodePages("text/plain", "There is an error. Status Code : {0}");
 
     // A lambda-based version of the StatusCodePages middleware.
     // Gives more control over the response (e.g., setting headers, writing custom messages).
@@ -32,13 +31,13 @@ if (app.Environment.IsDevelopment())
     });
 
     //Also you can add it without customizing
-    app.UseStatusCodePages();
+    //app.UseStatusCodePages();
 }
 else
 {
     app.UseHsts();
 }
-app.UseExceptionHandler("/Home/Error");
+//app.UseExceptionHandler("/Home/Error");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

@@ -1,4 +1,5 @@
-﻿using ErrorHandling.Models;
+﻿using ErrorHandling.Filter;
+using ErrorHandling.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace ErrorHandling.Controllers
             _logger = logger;
         }
 
+        [CustomExceptionFilterAttributeHandler]
         public IActionResult Index()
         {
             // get exception
@@ -37,6 +39,17 @@ namespace ErrorHandling.Controllers
             ViewBag.message = exception.Error.Message;
             return View();
             //return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+
+        public IActionResult Error1()
+        {
+            return View();
+        }
+
+        public IActionResult Error2()
+        {
+            return View();
         }
     }
 }
