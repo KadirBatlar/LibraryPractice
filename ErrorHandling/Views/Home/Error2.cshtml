@@ -1,6 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Error2";
+    Exception exception = ViewData["exception"] as Exception;
 }
 
 <h1>Error2</h1>
-
+<h2>Error message: @exception.Message</h2>
+<h2>Error page: @ViewData["url"]</h2>

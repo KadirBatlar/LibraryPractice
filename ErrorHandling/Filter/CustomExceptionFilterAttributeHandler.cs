@@ -7,11 +7,13 @@ namespace ErrorHandling.Filter
 {
     public class CustomExceptionFilterAttributeHandler : ExceptionFilterAttribute
     {
+        public string ErrorPage { get; set; }
         public override void OnException(ExceptionContext context)
         {
-            var result = new ViewResult() { ViewName = "Error1" };
+            var result = new ViewResult() { ViewName = ErrorPage };
             result.ViewData = new ViewDataDictionary(new EmptyModelMetadataProvider(), context.ModelState);
-            result.ViewData.Add("exception", context.Exception);
+            result.ViewData.Add("Exception", context.Exception);
+            result.ViewData.Add("Url", context.HttpContext.Request.Path.Value);
 
             context.Result = result;
         }

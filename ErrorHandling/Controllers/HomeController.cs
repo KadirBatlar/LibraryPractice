@@ -1,9 +1,7 @@
 ﻿using ErrorHandling.Filter;
-using ErrorHandling.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace ErrorHandling.Controllers
 {
@@ -16,7 +14,7 @@ namespace ErrorHandling.Controllers
             _logger = logger;
         }
 
-        [CustomExceptionFilterAttributeHandler]
+        [CustomExceptionFilterAttributeHandler(ErrorPage = "Error1")]
         public IActionResult Index()
         {
             // get exception
@@ -25,8 +23,10 @@ namespace ErrorHandling.Controllers
             return View();
         }
 
+        [CustomExceptionFilterAttributeHandler(ErrorPage = "Error2")]
         public IActionResult Privacy()
         {
+            throw new FileNotFoundException();
             return View();
         }
 
