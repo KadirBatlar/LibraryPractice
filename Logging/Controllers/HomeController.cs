@@ -1,26 +1,30 @@
 ﻿using Logging.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace Logging.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILoggerFactory _loggerFactory;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILoggerFactory loggerFactory)
         {
-            _logger = logger;
+            _loggerFactory = loggerFactory;
         }
 
         public IActionResult Index()
         {
-            _logger.LogTrace("Test");
-            _logger.LogDebug("Test");
-            _logger.LogInformation("Test");
-            _logger.LogWarning("Test");
-            _logger.LogError("Test");
-            _logger.LogCritical("Test");
+            var _logger = _loggerFactory.CreateLogger("HomeController");
+
+            _logger.LogTrace("Index");
+            _logger.LogDebug("Index");
+            _logger.LogInformation("Index");
+            _logger.LogWarning("Index");
+            _logger.LogError("Index");
+            _logger.LogCritical("Index");
+
             return View();
         }
 

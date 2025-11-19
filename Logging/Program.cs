@@ -3,7 +3,16 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 var app = builder.Build();
+
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+
+logger.LogInformation("Application is starting...");
+logger.LogWarning("This is a warning log!");
+logger.LogError("An error has occurred!");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
