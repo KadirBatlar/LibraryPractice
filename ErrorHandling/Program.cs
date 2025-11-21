@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews(options =>
 {
-    options.Filters.Add(new CustomExceptionFilterAttributeHandler() { ErrorPage = "Error1"})
+    options.Filters.Add(new CustomExceptionFilterAttributeHandler() { ErrorPage = "Error1" });
 });
 
 var app = builder.Build();
