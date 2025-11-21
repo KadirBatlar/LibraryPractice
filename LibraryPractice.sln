@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{C9505347-13A4-4E61-9B3D-9B383D548EA2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingNLogLibrary", "LoggingNLogLibrary\LoggingNLogLibrary.csproj", "{B1D0AA2E-D13E-4719-92DE-298F684635ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C9505347-13A4-4E61-9B3D-9B383D548EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9505347-13A4-4E61-9B3D-9B383D548EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9505347-13A4-4E61-9B3D-9B383D548EA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
