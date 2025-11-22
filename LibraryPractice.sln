@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggingNLogLibrary", "LoggingNLogLibrary\LoggingNLogLibrary.csproj", "{B1D0AA2E-D13E-4719-92DE-298F684635ED}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwaggerPractice", "SwaggerPractice\SwaggerPractice.csproj", "{8A80B1E4-5D7A-4F4E-B219-C9ADE5FACB4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1D0AA2E-D13E-4719-92DE-298F684635ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A80B1E4-5D7A-4F4E-B219-C9ADE5FACB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A80B1E4-5D7A-4F4E-B219-C9ADE5FACB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A80B1E4-5D7A-4F4E-B219-C9ADE5FACB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A80B1E4-5D7A-4F4E-B219-C9ADE5FACB4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
