@@ -15,14 +15,28 @@ namespace SwaggerPractice.Controllers
             _context = context;
         }
 
-        // GET: api/Products
+        /// <summary>
+        /// This endpoint get all products
+        /// </summary>
+        /// <remarks>
+        /// https://localhost:7163/api/products
+        /// </remarks>
+        /// <returns></returns>
+        [Produces("application/json")]
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
             return await _context.Products.ToListAsync();
         }
 
-        // GET: api/Products/5
+        /// <summary>
+        /// This endpoint get a specific product
+        /// </summary>
+        /// <param name="id">product id</param>
+        /// <returns></returns>
+        /// <response code="404">product not found</response>
+        /// <response code="200">Success</response>
+        [Produces("application/json")]
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -34,7 +48,11 @@ namespace SwaggerPractice.Controllers
             return product;
         }
 
-        // POST: api/Products
+        /// <summary>
+        /// This endpoint add product based on json that you gave
+        /// </summary>
+        /// <param name="product">json product entity</param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
